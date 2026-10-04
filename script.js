@@ -1547,7 +1547,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.confetti) {
         window.confetti({ particleCount: 90, spread: 80, origin: { y: 0.6 } });
       }
-      showToast('💍 Sneha said YES! Engaged & Bound for Eternity! 💖');
+      showToast('💍 Sneha & Jatin: Families Blessed! Counting down to 4th January 2027! 💖');
     });
   }
 
