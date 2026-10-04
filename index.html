@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Queen Sneha ❤️ | Cosmic Love Story with Jatin</title>
+  <meta name="description" content="An out-of-this-world, ultra-animated 3D birthday celebration and love journey for Sneha, crafted with cosmic romance by Jatin." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;900&family=Great+Vibes&family=Marcellus&family=Outfit:wght@300;400;500;600;700;800;900&family=Rozha+One&family=Sacramento&display=swap" rel="stylesheet">
+
+  <!-- GSAP & ScrollTrigger for Next-Level Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js for 3D Cosmic Atmosphere -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Lucide Icons & Confetti -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="locked-body">
+
+  <!-- THREE.JS 3D COSMIC CANVAS -->
+  <canvas id="threeCanvas"></canvas>
+  <canvas id="sparkleTrailCanvas"></canvas>
+
+  <!-- AURORA NEBULA LIGHTS -->
+  <div class="aurora-container">
+    <div class="aurora-blob aurora-1"></div>
+    <div class="aurora-blob aurora-2"></div>
+    <div class="aurora-blob aurora-3"></div>
+  </div>
+
+  <!-- CUSTOM FAIRY WAND CURSOR -->
+  <div class="fairy-cursor" id="fairyCursor"></div>
+  <div class="fairy-cursor-glow" id="fairyCursorGlow"></div>
+
+  <!-- 1. CINEMATIC LUXURY ENVELOPE OPENING SCENE (Exact User Design) -->
+  <div class="envelope-hero-overlay" id="envelopeHeroOverlay">
+    <div class="stars-backdrop"></div>
+
+    <div class="envelope-scene-wrapper" id="envelopeSceneWrapper">
+      <!-- Top Romantic Title in Golden Script -->
+      <h1 class="envelope-cursive-title">Something I needed to say</h1>
+
+      <!-- Specialized Envelope Hindi Birthday Song Pill -->
+      <div class="envelope-hindi-song-pill" data-song-id="bday_wish" title="Play Hindi Birthday Song">
+        <span class="pill-music-icon">🎵</span>
+        <span class="pill-title">विश यू हैप्पी बर्थडे (Happy Birthday Sneha!)</span>
+        <span class="pill-play-state"><i data-lucide="play"></i> Play BGM</span>
+      </div>
+
+      <!-- The Luxury Pink Textured Envelope -->
+      <div class="interactive-envelope" id="interactiveEnvelope">
+        <!-- 3D Folding Flap -->
+        <div class="env-flap" id="envFlap">
+          <div class="env-flap-inner"></div>
+        </div>
+
+        <!-- The Secret Letter Sliding Inside/Out -->
+        <div class="env-letter" id="envLetter">
+          <div class="letter-inner-content">
+            <div class="letter-top-sparkles">✨ 💍 ✨</div>
+            <h2 class="letter-love-headline">I Love You, Sneha ❤️</h2>
+            <div class="letter-love-divider"></div>
+            <p class="letter-love-para">
+              "From the day you entered my life to the moment we exchanged our rings, every single second has been a blessing. You are my fiancée, my best friend, and my future wife."
+            </p>
+            <p class="letter-birthday-wish">
+              Happy Birthday, My Queen! May your <strong>5th October</strong> shine brighter than all the stars in the cosmos. 👑🌹
+            </p>
+            <div class="letter-signature-block">
+              <span>Forever & Always Yours,</span>
+              <strong class="letter-jatin-name">Jatin ❤️</strong>
+            </div>
+            <button class="btn-enter-universe" id="btnEnterUniverse">
+              <span>Enter Our Wonderland</span>
+              <i data-lucide="arrow-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Envelope Body & Pocket -->
+        <div class="env-body">
+          <div class="env-texture-overlay"></div>
+          <!-- Corner Rose Flower Decoration -->
+          <div class="env-corner-rose">
+            <img src="images/pink_rose.jpg" alt="Pink Rose with Eucalyptus" class="rose-corner-img" />
+          </div>
+
+          <!-- Red Glossy Wax Seal -->
+          <div class="env-wax-seal" id="envWaxSeal">
+            <div class="wax-seal-center">
+              <span>S&J</span>
+            </div>
+            <div class="wax-pulse-glow"></div>
+          </div>
+
+          <!-- Handwritten Inscription -->
+          <div class="env-inscription">
+            <span>To:</span> <em>Sneha</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide the Rose to Open Pill -->
+      <div class="slide-to-open-track" id="sliderTrack">
+        <div class="slider-rose-thumb" id="sliderRoseThumb">
+          <img src="images/pink_rose.jpg" alt="Slide Rose" />
+        </div>
+        <span class="slider-text" id="sliderText">Slide the rose to open &rarr;</span>
+      </div>
+
+      <p class="scroll-hint-text"><i data-lucide="mouse"></i> or scroll down to open the letter</p>
+    </div>
+  </div>
+
+
+  <!-- FLOATING INTERACTIVE GLASS MUSIC DOCK -->
+  <aside class="cosmic-music-dock glass-panel" id="musicDock">
+    <div class="dock-vinyl-box">
+      <div class="vinyl-disc" id="vinylDisc">
+        <div class="vinyl-center">💍</div>
+      </div>
+      <div class="dock-visualizer" id="dockVisualizer">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="dock-meta">
+      <span class="dock-label">NOW PLAYING SYMPHONY</span>
+      <h4 class="dock-song-name" id="dockSongName">बार बार दिन ये आये (Happy Birthday)</h4>
+      <p class="dock-song-sub" id="dockSongSub">Hindi Birthday Special • Sneha & Jatin</p>
+    </div>
+
+    <div class="dock-controls">
+      <button class="dock-btn" id="dockPrevBtn" title="Previous Vibe"><i data-lucide="skip-back"></i></button>
+      <button class="dock-btn dock-play" id="dockPlayBtn" title="Play / Pause"><i data-lucide="play" id="dockPlayIcon"></i></button>
+      <button class="dock-btn" id="dockNextBtn" title="Next Vibe"><i data-lucide="skip-forward"></i></button>
+      <button class="dock-btn" id="dockMuteBtn" title="Mute/Unmute"><i data-lucide="volume-2" id="dockVolIcon"></i></button>
+    </div>
+  </aside>
+
+  <!-- QUICK FLOATING HYPERDRIVE ACTIONS -->
+  <div class="hyperdrive-actions">
+    <button class="hyper-btn" id="fireworksLauncherBtn" title="Launch Galaxy Fireworks">
+      <span class="hyper-icon">🎆</span>
+      <span class="hyper-label">Launch Fireworks</span>
+    </button>
+    <button class="hyper-btn" id="meteorShowerBtn" title="Trigger Meteor & Rose Shower">
+      <span class="hyper-icon">🌹</span>
+      <span class="hyper-label">Rose Shower</span>
+    </button>
+    <a href="#cakeSection" class="hyper-btn" title="Cut Birthday Cake">
+      <span class="hyper-icon">🎂</span>
+      <span class="hyper-label">Cut Cake</span>
+    </a>
+  </div>
+
+  <!-- FLOATING HEARTS ROMANCE LAYER -->
+  <div class="floating-hearts-layer" id="floatingHeartsLayer"></div>
+
+  <!-- MAIN SCROLLABLE GALAXY CONTAINER -->
+  <main class="galaxy-main" id="galaxyMain">
+
+    <!-- SECTION 1: HERO SPOTLIGHT WITH 3D HOLOGRAPHIC FOIL & LIVE RUNNING TIME -->
+    <section class="section-hero" id="heroSection">
+      
+      <!-- Section Hindi Birthday Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="bday_wish">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">🎂</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Hindi Birthday Anthem • Viewport Section 1</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">विश यू हैप्पी बर्थडे</span> • A Wish You Happy Happy Birthday</h4>
+            <p class="song-lyrics-snippet">"तुम जियो हज़ारों साल, साल के दिन हों पचास हज़ार... हैप्पी बर्थडे टू यू Sneha!"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Hindi Birthday Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        
+        <!-- Left Content -->
+        <div class="hero-text-container">
+          <div class="glow-pill-badge">
+            <span class="sparkle-orbit">✨</span>
+            <span>Happy Birthday My Future Wife • 5th October 2026</span>
+          </div>
+
+          <h1 class="hero-cosmic-title">
+            To The Girl Who Owns <br/>
+            <span class="gradient-fire-text">Every Beat Of My Heart,</span> <br/>
+            <span class="sneha-cosmic-name">Queen Sneha 👑</span>
+          </h1>
+
+          <p class="hero-cosmic-bio">
+            From strangers to engaged soulmates, every second spent with you is pure magic. 
+            On this special 5th of October, here is an extraordinary digital wonderland engineered exclusively to celebrate YOU!
+          </p>
+
+          <!-- LIVE ETERNAL LOVE & BIRTHDAY METRIC DISPLAY -->
+          <div class="cosmic-metric-board glass-panel">
+            <div class="metric-top-bar">
+              <span class="live-dot"></span>
+              <span class="metric-title" id="countdownHeadline">Countdown to Sneha's Birthday Celebration (5 Oct 2026)</span>
+            </div>
+            <div class="metric-timer-boxes">
+              <div class="m-box">
+                <span class="m-digit" id="cdDays">00</span>
+                <span class="m-lbl">Days</span>
+              </div>
+              <div class="m-sep">:</div>
+              <div class="m-box">
+                <span class="m-digit" id="cdHours">00</span>
+                <span class="m-lbl">Hours</span>
+              </div>
+              <div class="m-sep">:</div>
+              <div class="m-box">
+                <span class="m-digit" id="cdMins">00</span>
+                <span class="m-lbl">Minutes</span>
+              </div>
+              <div class="m-sep">:</div>
+              <div class="m-box">
+                <span class="m-digit" id="cdSecs">00</span>
+                <span class="m-lbl">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-action-row">
+            <button class="cosmic-btn cosmic-btn-primary" id="heroBurstLoveBtn">
+              <span class="btn-ripple"></span>
+              <i data-lucide="heart"></i> Shower Infinite Love
+            </button>
+            <a href="#shayariSection" class="cosmic-btn cosmic-btn-glass">
+              <i data-lucide="scroll"></i> Explore Shayaris
+            </a>
+          </div>
+        </div>
+
+        <!-- Right 3D Holographic Foil Parallax Frame -->
+        <div class="hero-hologram-wrapper">
+          <div class="holo-card" id="holoCard">
+            <div class="holo-foil-sheen"></div>
+            <div class="holo-photo-container">
+              <img src="images/couple_engagement.jpg" alt="Sneha and Jatin Engagement" class="holo-img" id="mainCoupleImg" />
+              <div class="holo-badge-top">
+                <span class="holo-star">⭐</span>
+                <span>The Royal Engagement</span>
+              </div>
+              <div class="holo-badge-bottom">
+                <div class="holo-names">
+                  <h3>Jatin & Sneha</h3>
+                  <p>Two Souls • One Destiny 💍</p>
+                </div>
+                <div class="holo-heart-pulse">❤️</div>
+              </div>
+            </div>
+
+            <!-- Orbiting 3D Elements -->
+            <div class="orbit-badge orbit-1">🎂 5 Oct 2026</div>
+            <div class="orbit-badge orbit-2">✨ 100% Soulmates</div>
+            <div class="orbit-badge orbit-3">💍 Ring Exchanged</div>
+
+            <!-- ANIMATED 3D WHITE CARTOON COUPLE CHARACTERS (Exact User Request) -->
+            <!-- 1. Titanic Romantic Pose White Couple -->
+            <div class="cartoon-couple-sticker titanic-pose-sticker" title="Jatin & Sneha Titanic Hug ❤️">
+              <img src="images/cute_cartoon_couple.png" alt="Cute White Cartoon Couple Titanic Pose" />
+              <div class="sticker-heart-bubble">💖</div>
+            </div>
+
+            <!-- 2. Ring Proposal Cartoon Couple -->
+            <div class="cartoon-couple-sticker ring-propose-sticker" title="Will you marry me, Sneha? 💍">
+              <img src="images/white_cartoon_ring.jpg" alt="White Cartoon Propose Ring" />
+              <div class="sticker-heart-bubble">💍</div>
+            </div>
+
+            <!-- 3. Birthday Celebration Cartoon Couple -->
+            <div class="cartoon-couple-sticker birthday-hug-sticker" title="Happy Birthday Sneha! 🎂">
+              <img src="images/white_cartoon_birthday.jpg" alt="White Cartoon Birthday Hug" />
+              <div class="sticker-heart-bubble">🎉</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: 3D ROYAL CELESTIAL DIAMOND CHAMBER & 7 SACRED VOWS OF JATIN -->
+    <section class="section-royal-chamber" id="royalChamberSection">
+      
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="hindi_song">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">💍</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Royal Surprise Chamber • Viewport Section 2</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">जन्मदिन का तोहफा</span> • Birthday Hindi Special</h4>
+            <p class="song-lyrics-snippet">"तुम्हारी खुशियों की खातिर सारा जहाँ सजाएंगे... 3D Diamond Chamber & 7 Vows!"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="crown"></i> Sneha's Royal Birthday Surprise • The Crown Jewel</span>
+        <h2 class="headline-title">The Celestial Diamond Ring Chamber & 7 Eternal Vows</h2>
+        <p class="headline-desc">A magical 3D interactive sanctum engineered exclusively by Jatin for his future wife ❤️</p>
+      </div>
+
+      <!-- Main Interactive 3D Stage -->
+      <div class="chamber-main-grid">
+        
+        <!-- Left: 3D Ring Box Pedestal -->
+        <div class="chamber-pedestal-stage glass-panel">
+          <div class="chamber-badge-pill">
+            <i data-lucide="sparkles"></i> <span>Interactive 3D Jewel Box</span>
+          </div>
+
+          <div class="jewelry-box-container" id="jewelryBoxContainer" title="Tap to Open Sneha's Ring Box!">
+            <!-- Base of Velvet Box -->
+            <div class="jewelry-box-base">
+              <div class="jewelry-cushion">
+                <div class="cushion-slit"></div>
+                <!-- 3D Diamond Ring -->
+                <div class="chamber-diamond-ring" id="chamberRing">
+                  <span class="ring-gem">💍</span>
+                  <div class="ring-sparkle-halo"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Folding Velvet Lid -->
+            <div class="jewelry-box-lid" id="jewelryBoxLid">
+              <span class="box-lid-crest">👑</span>
+              <span class="box-lid-label">SNEHA & JATIN</span>
+            </div>
+          </div>
+
+          <button class="cosmic-btn cosmic-btn-primary box-trigger-btn" id="btnToggleRingBox">
+            <i data-lucide="key"></i> <span id="ringBoxBtnText">Tap to Open Royal Ring Box ✨</span>
+          </button>
+        </div>
+
+        <!-- Right: Hologram Love Portal & Live Dedication -->
+        <div class="chamber-hologram-portal glass-panel">
+          <div class="holo-portal-top">
+            <div class="holo-crystal-badge">💖</div>
+            <div>
+              <h3>Holographic Love Projection</h3>
+              <p>Cosmic Resonance: Sealed for Eternity 💍</p>
+            </div>
+          </div>
+
+          <!-- Hologram Display Frame -->
+          <div class="hologram-display-frame">
+            <img src="images/couple_art_3d.jpg" alt="Sneha & Jatin Hologram" />
+            <div class="holo-scanlines"></div>
+            <div class="holo-laser-beam"></div>
+            <div class="holo-overlay-meta">
+              <div class="holo-meta-names">
+                <h4>Jatin & Sneha</h4>
+                <p>Two Souls • One Destiny</p>
+              </div>
+              <span class="holo-status-pill">⭐ 100% Soulmate Harmony</span>
+            </div>
+          </div>
+
+          <div class="chamber-declaration-box">
+            <p>
+              <em>"Sneha, putting this ring on your finger was the moment my entire universe found its center. Today, tomorrow, and across every lifetime, you are my one and only Queen."</em>
+            </p>
+          </div>
+
+          <div class="chamber-actions-row">
+            <button class="cosmic-btn cosmic-btn-gold" id="btnChamberSurprise">
+              <i data-lucide="party-popper"></i> Launch Grand Royal Surprise Burst 🎉
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 7 SACRED VOWS OF JATIN (SAT PHERE) -->
+      <div class="vows-deck-header">
+        <span class="headline-pill"><i data-lucide="scroll"></i> सात फेरे • The 7 Sacred Vows</span>
+        <h3>Jatin's 7 Eternal Promises to Sneha</h3>
+        <p>Unbreakable vows whispered from the soul, sealed under the cosmic stars.</p>
+      </div>
+
+      <div class="vows-7-carousel">
+        <!-- Vow 1 -->
+        <div class="vow-card-3d glass-panel">
+          <div class="vow-top-meta">
+            <span class="vow-number-badge">01</span>
+            <span class="vow-icon-emoji">😊</span>
+          </div>
+          <h4 class="vow-hindi-title">पहला वचन • The Vow of Joy</h4>
+          <span class="vow-english-sub">Laughter & Happiness</span>
+          <p class="vow-promise-text">"I promise to make your laughter and radiant smile my highest daily mission, turning even the dullest days into sunshine."</p>
+          <div class="vow-footer-seal">✨ Sealed with Love</div>
+        </div>
+
+        <!-- Vow 2 -->
+        <div class="vow-card-3d glass-panel">
+          <div class="vow-top-meta">
+            <span class="vow-number-badge">02</span>
+            <span class="vow-icon-emoji">👑</span>
+          </div>
+          <h4 class="vow-hindi-title">दूसरा वचन • The Vow of Honor</h4>
+          <span class="vow-english-sub">Respect & Devotion</span>
+          <p class="vow-promise-text">"To always honor, cherish, and treat you like the supreme queen you are, listening to your thoughts with endless patience and care."</p>
+          <div class="vow-footer-seal">👑 Royal Queen Deed</div>
+        </div>
+
+        <!-- Vow 3 -->
+        <div class="vow-card-3d glass-panel">
+          <div class="vow-top-meta">
+            <span class="vow-number-badge">03</span>
+            <span class="vow-icon-emoji">🛡️</span>
+          </div>
+          <h4 class="vow-hindi-title">तीसरा वचन • The Vow of Support</h4>
+          <span class="vow-english-sub">Strength & Protection</span>
+          <p class="vow-promise-text">"To stand as an unshakable rock beside you through every storm, celebrating your dreams and victories as my own."</p>
+          <div class="vow-footer-seal">💎 Forever Rock</div>
+        </div>
+
+        <!-- Vow 4 -->
+        <div class="vow-card-3d glass-panel">
+          <div class="vow-top-meta">
+            <span class="vow-number-badge">04</span>
+            <span class="vow-icon-emoji">🌹</span>
+          </div>
+          <h4 class="vow-hindi-title">चौथा वचन • The Vow of Romance</h4>
+          <span class="vow-english-sub">Eternal Spark</span>
+          <p class="vow-promise-text">"To keep our romance as fresh and thrilling as our very first day, never letting the magic between us fade even after 50 years."</p>
+          <div class="vow-footer-seal">🌹 Infinite Passion</div>
+        </div>
+
+        <!-- Vow 5 -->
+        <div class="vow-card-3d glass-panel">
+          <div class="vow-top-meta">
+            <span class="vow-number-badge">05</span>
+            <span class="vow-icon-emoji">🚗</span>
+          </div>
+          <h4 class="vow-hindi-title">पाँचवाँ वचन • The Vow of Adventure</h4>
+          <span class="vow-english-sub">Midnight Drives & Treats</span>
+          <p class="vow-promise-text">"To be your lifelong travel partner, midnight ice cream accomplice, personal photographer, and best friend through every adventure."</p>
+          <div class="vow-footer-seal">🍦 Midnight Cravings</div>
+        </div>
+
+        <!-- Vow 6 -->
+        <div class="vow-card-3d glass-panel">
+          <div class="vow-top-meta">
+            <span class="vow-number-badge">06</span>
+            <span class="vow-icon-emoji">🕊️</span>
+          </div>
+          <h4 class="vow-hindi-title">छठा वचन • The Vow of Loyalty</h4>
+          <span class="vow-english-sub">Pure Trust & Faith</span>
+          <p class="vow-promise-text">"To give you my unwavering loyalty, transparency, and heart, guarding our bond against everything in this world."</p>
+          <div class="vow-footer-seal">💍 100% Devotion</div>
+        </div>
+
+        <!-- Vow 7 -->
+        <div class="vow-card-3d glass-panel">
+          <div class="vow-top-meta">
+            <span class="vow-number-badge">07</span>
+            <span class="vow-icon-emoji">✨</span>
+          </div>
+          <h4 class="vow-hindi-title">सातवाँ वचन • The Seven Lifetimes</h4>
+          <span class="vow-english-sub">Beyond Eternity</span>
+          <p class="vow-promise-text">"Not just for this lifetime, but across all seven births to come, my soul will always recognize, seek, and love only Sneha."</p>
+          <div class="vow-footer-seal">♾️ Seven Lifetimes</div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- SECTION 2: BIOMETRIC SOULMATE FINGERPRINT SCANNER -->
+    <section class="section-scanner" id="scannerSection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="song_hindi">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">💓</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Heartbeat Frequency Song • Viewport Section 3</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">दिल की धड़कन</span> • Birthday Song Hindi Special</h4>
+            <p class="song-lyrics-snippet">"सुना है तेरे दिल की धड़कन में मेरा ही नाम गूंजता है... 140 BPM Love Frequency!"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="activity"></i> Biometric Love Compatibility</span>
+        <h2 class="headline-title">Cosmic Soul Connection Scanner</h2>
+        <p class="headline-desc">Sneha, touch & hold the biometric scanner to verify our eternal love frequencies.</p>
+      </div>
+
+      <div class="scanner-console glass-panel">
+        <div class="scanner-left">
+          <div class="fingerprint-sensor" id="fingerprintSensor">
+            <div class="laser-scanner-line"></div>
+            <div class="sensor-icon">
+              <i data-lucide="fingerprint"></i>
+            </div>
+            <div class="sensor-pulse-ring"></div>
+          </div>
+          <span class="sensor-instruction" id="scannerStatus">Touch & Hold Fingerprint Sensor</span>
+        </div>
+
+        <div class="scanner-right">
+          <div class="ekg-monitor">
+            <div class="ekg-header">
+              <span>HEARTBEAT FREQUENCY</span>
+              <span class="ekg-bpm" id="ekgBpm">140 BPM</span>
+            </div>
+            <canvas id="ekgCanvas" width="340" height="70"></canvas>
+          </div>
+
+          <div class="scan-metrics-grid">
+            <div class="scan-metric-item">
+              <span class="sm-label">Soul Compatibility</span>
+              <span class="sm-value" id="compVal">99.999%</span>
+            </div>
+            <div class="scan-metric-item">
+              <span class="sm-label">Engagement Status</span>
+              <span class="sm-value highlight-green">Sealed for Eternity 💍</span>
+            </div>
+            <div class="scan-metric-item">
+              <span class="sm-label">Cuddle Quota</span>
+              <span class="sm-value">Infinite / Day</span>
+            </div>
+            <div class="scan-metric-item">
+              <span class="sm-label">Fiancé Devotion</span>
+              <span class="sm-value">1000% Jatin ❤️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 3D STORYBOOK JOURNEY (TIMELINE - 6 UNIQUE CHAPTERS) -->
+    <section class="section-story" id="storySection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="hindi_wishes">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">🌹</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Love Journey Melody • Viewport Section 4</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">तेरा हैप्पी बर्थडे</span> • Birthday Wishes Journey</h4>
+            <p class="song-lyrics-snippet">"दिल की गहराइयों से स्नेहा के लिए खास... Jatin & Sneha Milestone Timeline"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="milestone"></i> Destined From The Start</span>
+        <h2 class="headline-title">The Story of How You Became My World</h2>
+        <p class="headline-desc">Step through the 6 magical chapters that turned two strangers into forever soulmates.</p>
+      </div>
+
+      <div class="story-orbit-container">
+        <!-- Milestone 1 -->
+        <div class="story-orbit-card glass-panel" data-step="1">
+          <div class="story-step-number">01</div>
+          <div class="story-card-body">
+            <div class="story-icon-wrap"><i data-lucide="sparkles"></i></div>
+            <span class="story-date">Chapter 1 • The First Encounter 💬</span>
+            <h3 class="story-card-title">When Destiny Crossed Our Paths</h3>
+            <p>From the very first shy conversations to talking until the stars faded away. In that sweet awkwardness, I saw the kindest, most pure-hearted girl I had ever known.</p>
+            <div class="story-tag">The Beginning of Forever ✨</div>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="story-orbit-card glass-panel" data-step="2">
+          <div class="story-step-number">02</div>
+          <div class="story-card-body">
+            <div class="story-icon-wrap"><i data-lucide="heart"></i></div>
+            <span class="story-date">Chapter 2 • Falling In Love Daily 💖</span>
+            <h3 class="story-card-title">The Magic in Your Smile</h3>
+            <p>Every time you laughed, every time you made that cute expression, and every time you shared your dreams — Jatin fell deeper in love with Sneha with no way back!</p>
+            <div class="story-tag">Irreversible Romance 💘</div>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="story-orbit-card glass-panel highlight-story" data-step="3">
+          <div class="story-step-number">03</div>
+          <div class="story-card-body">
+            <div class="story-icon-wrap gold-wrap"><i data-lucide="gem"></i></div>
+            <span class="story-date">Chapter 3 • The Royal Engagement 💍</span>
+            <h3 class="story-card-title">Officially & Publicly Mine!</h3>
+            <p>Standing next to you in that gorgeous dark green outfit while sliding the ring onto your finger... I knew God had blessed me with the universe's greatest prize.</p>
+            <div class="story-mini-art">
+              <img src="images/couple_art_3d.jpg" alt="3D Couple Art" />
+              <span>Two Souls Sealed for Eternity 💍</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="story-orbit-card glass-panel" data-step="4">
+          <div class="story-step-number">04</div>
+          <div class="story-card-body">
+            <div class="story-icon-wrap blue-wrap"><i data-lucide="moon"></i></div>
+            <span class="story-date">Chapter 4 • Midnight Conversations 🌙</span>
+            <h3 class="story-card-title">Whispers Under The Moonlight</h3>
+            <p>Late night calls, random funny reels, sharing every little detail of our day, and realizing that no matter how tired we were, your voice was my peace.</p>
+            <div class="story-tag">My Favorite Late Night Habit 📱❤️</div>
+          </div>
+        </div>
+
+        <!-- Milestone 5 -->
+        <div class="story-orbit-card glass-panel" data-step="5">
+          <div class="story-step-number">05</div>
+          <div class="story-card-body">
+            <div class="story-icon-wrap purple-wrap"><i data-lucide="car"></i></div>
+            <span class="story-date">Chapter 5 • Midnight Cravings & Drives 🚗</span>
+            <h3 class="story-card-title">Our Food & Adventure Quests</h3>
+            <p>From craving midnight waffles and ice creams to planning dream trips across Europe and Maldives — having you as my crime partner makes life a celebration!</p>
+            <div class="story-tag">Lifelong Adventure Partner 🍦🗺️</div>
+          </div>
+        </div>
+
+        <!-- Milestone 6 -->
+        <div class="story-orbit-card glass-panel highlight-birthday" data-step="6">
+          <div class="story-step-number">06</div>
+          <div class="story-card-body">
+            <div class="story-icon-wrap pink-wrap"><i data-lucide="cake"></i></div>
+            <span class="story-date">Chapter 6 • 5th October 2026 🎂</span>
+            <h3 class="story-card-title">Queen Sneha's Birthday Celebration</h3>
+            <p>Today is all about my queen. May your life be filled with boundless laughter, infinite shopping sprees, and Jatin’s lifelong pampering and protection!</p>
+            <div class="story-tag">Happy Birthday Queen Sneha! 👑🎉</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SCROLL-DRIVEN BOY & GIRL WALKING & GRAND HUG CELEBRATION (NEW!) 👫💖 -->
+    <section class="section-scroll-hug" id="scrollHugSection">
+      
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="hindi_song_1">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">👫</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Two Souls Uniting • Scroll Interactive Section</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">पास आए, दूरियां मिटाए</span> • Grand Romantic Hug Symphony</h4>
+            <p class="song-lyrics-snippet">"Scroll down slow-slow to bring Jatin & Sneha together into a romantic warm embrace! ❤️"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="footprints"></i> Scroll To Bring Us Together</span>
+        <h2 class="headline-title">The Cosmic Journey: Walking Towards Forever</h2>
+        <p class="headline-desc">As you scroll down slowly, watch Jatin and Sneha walk closer and closer until they embrace in a grand romantic hug!</p>
+      </div>
+
+      <!-- Interactive Scroll Hug Arena -->
+      <div class="hug-interactive-arena glass-panel" id="hugArena">
+        
+        <!-- Live Distance Tracker -->
+        <div class="hug-distance-meter">
+          <span class="dist-icon">💖</span>
+          <span class="dist-label">Distance Between Souls:</span>
+          <span class="dist-number" id="hugDistVal">1000m</span>
+          <span class="dist-status-badge" id="hugStatusBadge">🚶 Walking Closer...</span>
+        </div>
+
+        <!-- Stardust Cosmic Pathway -->
+        <div class="stardust-walking-path" id="stardustPath">
+          
+          <!-- Stardust glowing bridge line -->
+          <div class="path-glowing-line"></div>
+          <div class="path-hearts-glow"></div>
+
+          <!-- Boy Character (Jatin) on Left -->
+          <div class="walker-character boy-character" id="boyWalker">
+            <div class="walker-speech-bubble" id="boyBubble">Sneha, I'm coming! 🏃‍♂️❤️</div>
+            <div class="walker-avatar-wrap">
+              <img src="images/jatin_smile.jpg" alt="Jatin" class="walker-img boy-img" />
+              <div class="walker-footprint-dust"></div>
+            </div>
+            <div class="walker-name-tag">Jatin 🤴</div>
+          </div>
+
+          <!-- United Hug Center Stage (Appears when close) -->
+          <div class="united-hug-center" id="unitedHugCenter">
+            <div class="hug-heart-aura" id="hugHeartAura"></div>
+            <div class="hug-couple-avatar" id="hugCoupleAvatar">
+              <img src="images/couple_engagement.jpg" alt="Jatin & Sneha Hug" class="hug-merged-img" />
+              <div class="hug-love-particles">💖 ✨ 💍 🌹 💕</div>
+            </div>
+            <div class="hug-celebration-banner" id="hugBanner">
+              <h3>FOREVER BOUND IN A WARM HUG ❤️</h3>
+              <p>Two Souls • One Heartbeat • Happy Birthday Sneha! 🎂👑</p>
+            </div>
+          </div>
+
+          <!-- Girl Character (Sneha) on Right -->
+          <div class="walker-character girl-character" id="girlWalker">
+            <div class="walker-speech-bubble" id="girlBubble">Waiting for you! 🌸✨</div>
+            <div class="walker-avatar-wrap">
+              <img src="images/sneha_cute.jpg" alt="Sneha" class="walker-img girl-img" />
+              <div class="walker-footprint-dust"></div>
+            </div>
+            <div class="walker-name-tag">Sneha 👑</div>
+          </div>
+
+        </div>
+
+        <!-- Manual Interactive Slider & Action Row -->
+        <div class="hug-control-dock">
+          <div class="hug-slider-row">
+            <span class="slider-hint-lbl"><i data-lucide="mouse"></i> Scroll slowly or drag slider to hug:</span>
+            <input type="range" id="hugProgressSlider" min="0" max="100" value="0" class="cosmic-range-slider" />
+          </div>
+
+          <div class="hug-action-buttons">
+            <button class="cosmic-btn cosmic-btn-primary" id="btnTriggerHugBurst">
+              <i data-lucide="heart-handshake"></i> Instant Grand Hug & Fireworks Burst 🎉
+            </button>
+            <button class="cosmic-btn cosmic-btn-glass" id="btnResetHug">
+              <i data-lucide="rotate-ccw"></i> Walk Again
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: DIL KI BAAT - SYNCHRONIZED KARAOKE SHAYARIS -->
+    <section class="section-shayari" id="shayariSection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="hindi_song_1">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">🕊️</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Dil Ki Awaaz Anthem • Viewport Section 5</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">दिल से दुआ शायरी</span> • Birthday Hindi Special Vol 1</h4>
+            <p class="song-lyrics-snippet">"तेरी मुस्कुराहट से शुरू होती है मेरी हर सुबह... Romantic Shayaris for Sneha!"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="feather"></i> Dil Ki Awaaz</span>
+        <h2 class="headline-title">Romantic Shayaris & Video Premiere for Sneha</h2>
+        <p class="headline-desc">Experience our heartfelt video moments, tap cards to hear melodic chords, and read verses penned exclusively for you.</p>
+      </div>
+
+      <!-- CINEMATIC ROYAL VIDEO PREMIERE WITH LIVE WISHING FX (Exact User Request) -->
+      <div class="video-wish-theater glass-panel" id="videoWishTheater">
+        <div class="video-theater-header">
+          <div class="theater-badge">
+            <span class="live-record-dot"></span>
+            <span>EXCLUSIVE BIRTHDAY VIDEO MEMORY 🎬</span>
+          </div>
+          <h3 class="theater-title">Sneha's Special Birthday Video Premiere ✨</h3>
+          <p class="theater-sub">Playing with cosmic stardust, glowing heart auras & romantic wishes from Jatin ❤️</p>
+        </div>
+
+        <div class="video-player-frame" id="videoPlayerFrame">
+          <!-- Animated Wishing FX Overlay -->
+          <div class="video-wishing-overlay">
+            <div class="wishing-floating-pill">🎂 Happy Birthday My Queen Sneha! 👑</div>
+            <div class="wishing-corner-badge">💍 Jatin ❤️ Sneha</div>
+            <div class="wishing-floating-sparkles">✨ 💖 🌹 ✨</div>
+          </div>
+
+          <!-- Video Element with Autoplay, Loop, Playsinline -->
+          <video id="snehaBirthdayVideo" class="sneha-bday-video" autoplay muted loop playsinline preload="auto">
+            <source src="video/WhatsApp Video 2026-10-04 at 9.07.03 PM.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+
+          <!-- Floating Video Controls Bar -->
+          <div class="video-quick-controls">
+            <button class="v-ctrl-btn" id="btnToggleVideoSound" title="Toggle Sound">
+              <i data-lucide="volume-x" id="videoVolIcon"></i> <span>Unmute Video</span>
+            </button>
+            <button class="v-ctrl-btn" id="btnToggleVideoPlay" title="Play/Pause">
+              <i data-lucide="pause" id="videoPlayIcon"></i> <span>Pause</span>
+            </button>
+            <button class="v-ctrl-btn v-wish-btn" id="btnBurstVideoWish" title="Shower Birthday Wishes">
+              <i data-lucide="sparkles"></i> <span>Shower Wishes 🎉</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shayari-showcase-grid">
+        <!-- Shayari 1 -->
+        <div class="shayari-holo-card glass-panel" data-theme="rose">
+          <div class="sh-top">
+            <span class="sh-pill"><i data-lucide="heart"></i> To My Fiancée</span>
+            <button class="sh-copy-btn" title="Copy Shayari"><i data-lucide="copy"></i></button>
+          </div>
+          <div class="sh-urdu-verse">
+            "तेरी मुस्कुराहट से शुरू होती है मेरी हर सुबह,<br/>
+            तेरे नाम से ही मुकम्मल होती है मेरी हर दुआ...<br/>
+            सगाई तो बस एक रस्म थी दुनिया के लिए,<br/>
+            मेरी रूह तो कब की तेरी हो चुकी है स्नेहा! ❤️"
+          </div>
+          <p class="sh-english-trans">
+            <em>"My every morning blooms with your smile, my every prayer finds meaning in your name. Engagement was just a ceremony for the world, my soul had belonged to you long before."</em>
+          </p>
+          <div class="sh-footer">
+            <span class="sh-author">— Always Yours, Jatin ✍️</span>
+            <button class="sh-melody-play-btn" data-type="flute"><i data-lucide="volume-2"></i> Play Romantic Melodic Chords</button>
+          </div>
+        </div>
+
+        <!-- Shayari 2 -->
+        <div class="shayari-holo-card glass-panel" data-theme="gold">
+          <div class="sh-top">
+            <span class="sh-pill"><i data-lucide="sparkles"></i> Birthday Special</span>
+            <button class="sh-copy-btn" title="Copy Shayari"><i data-lucide="copy"></i></button>
+          </div>
+          <div class="sh-urdu-verse">
+            "खुदा से क्या मांगू तेरे जन्मदिन के इस खास मौके पर,<br/>
+            खुदा ने मुझे दुनिया की सबसे खूबसूरत मंगेतर दे दी है!<br/>
+            दुआ है कि तेरी आँखों में कभी कोई आंसू ना आए,<br/>
+            और खुशियाँ हमेशा तेरे कदमों में सजी रहें! 🎂✨"
+          </div>
+          <p class="sh-english-trans">
+            <em>"What more can I ask from God on your birthday, when He has already blessed me with the most gorgeous fiancée on earth? May your eyes never see tears, and joy forever adorn your footsteps."</em>
+          </p>
+          <div class="sh-footer">
+            <span class="sh-author">— To My Birthday Queen 👑</span>
+            <button class="sh-melody-play-btn" data-type="harp"><i data-lucide="volume-2"></i> Play Celestial Harp</button>
+          </div>
+        </div>
+
+        <!-- Shayari 3 -->
+        <div class="shayari-holo-card glass-panel" data-theme="emerald">
+          <div class="sh-top">
+            <span class="sh-pill"><i data-lucide="gem"></i> Forever Vow</span>
+            <button class="sh-copy-btn" title="Copy Shayari"><i data-lucide="copy"></i></button>
+          </div>
+          <div class="sh-urdu-verse">
+            "हाथ थाम लिया है तेरा, अब छोड़ेंगे नहीं,<br/>
+            ये वादा है जतिन का, कभी तेरा दिल तोड़ेंगे नहीं!<br/>
+            चाहे कैसी भी राहें हों ज़िंदगी के सफर में,<br/>
+            तेरे हर सुख-दुख में सिर्फ तेरा साथ निभाएंगे! 💍🌹"
+          </div>
+          <p class="sh-english-trans">
+            <em>"I have held your hand, and I shall never let go. It's Jatin's eternal promise, I will never break your heart. Whatever paths life takes us on, I will walk by your side in every joy and sorrow."</em>
+          </p>
+          <div class="sh-footer">
+            <span class="sh-author">— The Eternal Promise 🕊️</span>
+            <button class="sh-melody-play-btn" data-type="piano"><i data-lucide="volume-2"></i> Play Piano Harmony</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instant Infinite Shayari Forge -->
+      <div class="shayari-generator-box glass-panel">
+        <div class="gen-title-row">
+          <i data-lucide="wand-2"></i>
+          <h3>Jatin's Infinite Heartbeat Forge</h3>
+        </div>
+        <p class="gen-quote-text" id="genQuoteText">
+          "हर पल तेरा ख्याल है, हर सांस में तेरा नाम है... सगाई तो बस शुरुआत है, पूरी जिंदगी तेरे नाम है!"
+        </p>
+        <button class="cosmic-btn cosmic-btn-gold" id="genNewQuoteBtn">
+          <i data-lucide="sparkles"></i> Forge Another Romantic Verse
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION 5: 3D MAGNETIC POLAROID GALLERY WITH FLIP-TO-SECRET-NOTE -->
+    <section class="section-gallery" id="gallerySection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="tere_bhai">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">📸</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Royal Celebration Mix • Viewport Section 6</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">बर्थडे पार्टी धूम</span> • Tere Bhai Ka Birthday Hai</h4>
+            <p class="song-lyrics-snippet">"धूम धड़ाका, सगाई की यादें और सीक्रेट नोट्स... Sneha's Gorgeous Looks!"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="camera"></i> 3D Photo Album</span>
+        <h2 class="headline-title">Our Captured Memories & Secret Notes</h2>
+        <p class="headline-desc">Hover over photos to magnetically pull them, or tap to flip and read Jatin's secret handwritten note on the back!</p>
+      </div>
+
+      <div class="polaroid-3d-grid">
+        <!-- Card 1: Engagement Couple -->
+        <div class="flip-card" data-tilt="-4">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="polaroid-tape"></div>
+              <div class="polaroid-photo">
+                <img src="images/couple_engagement.jpg" alt="Sneha and Jatin Engagement" />
+              </div>
+              <div class="polaroid-text">
+                <h4>The Royal Couple 💍</h4>
+                <p>Our magical engagement day look</p>
+                <span class="tap-hint">Tap to flip & read secret note ↺</span>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="secret-wax-seal">👑</div>
+              <h3>To My Queen Sneha</h3>
+              <p>"Looking at you by my side on our engagement made me realize I am the luckiest man alive in this entire galaxy. I love you endlessly!"</p>
+              <span class="signature-line">— Jatin ❤️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Sneha Cute Selfie -->
+        <div class="flip-card" data-tilt="3">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="polaroid-tape"></div>
+              <div class="polaroid-photo">
+                <img src="images/sneha_cute.jpg" alt="Sneha Cute Selfie" />
+              </div>
+              <div class="polaroid-text">
+                <h4>The Birthday Girl 👑</h4>
+                <p>That cute smile & moon filter</p>
+                <span class="tap-hint">Tap to flip & read secret note ↺</span>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="secret-wax-seal">💖</div>
+              <h3>My Cutest View</h3>
+              <p>"This photo melts my heart every single time. Never stop smiling like this, Sneha. Your laughter is my favorite song!"</p>
+              <span class="signature-line">— Your Biggest Fan, Jatin 😊</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: 3D Pixar Couple Art -->
+        <div class="flip-card" data-tilt="-2">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="polaroid-tape"></div>
+              <div class="polaroid-photo">
+                <img src="images/couple_art_3d.jpg" alt="3D Pixar Couple Art" />
+              </div>
+              <div class="polaroid-text">
+                <h4>Our Animated Fairytale ✨</h4>
+                <p>Brown suit & emerald green magic</p>
+                <span class="tap-hint">Tap to flip & read secret note ↺</span>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="secret-wax-seal">🌟</div>
+              <h3>Forever Story</h3>
+              <p>"If our love was a Disney movie, it would be the most epic blockbuster! Together forever and ever."</p>
+              <span class="signature-line">— Jatin ❤️ Sneha</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Jatin Smile in Floral Arch -->
+        <div class="flip-card" data-tilt="4">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="polaroid-tape"></div>
+              <div class="polaroid-photo">
+                <img src="images/jatin_smile.jpg" alt="Jatin Smiling in floral arch" />
+              </div>
+              <div class="polaroid-text">
+                <h4>The Happiest Fiancé 😎</h4>
+                <p>Smiling because I am marrying you!</p>
+                <span class="tap-hint">Tap to flip & read secret note ↺</span>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="secret-wax-seal">💍</div>
+              <h3>A Groom's Joy</h3>
+              <p>"The smile on my face in this picture is 100% because Sneha said YES to spending her life with me!"</p>
+              <span class="signature-line">— Devoted Groom Jatin</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Jatin Victory Pose -->
+        <div class="flip-card" data-tilt="-3">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="polaroid-tape"></div>
+              <div class="polaroid-photo">
+                <img src="images/jatin_pose.jpg" alt="Jatin Peace Sign" />
+              </div>
+              <div class="polaroid-text">
+                <h4>Victory for Life ✌️</h4>
+                <p>Won the best girl in the universe</p>
+                <span class="tap-hint">Tap to flip & read secret note ↺</span>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="secret-wax-seal">🌹</div>
+              <h3>Ultimate Achievement</h3>
+              <p>"I might win many things in life, but winning Sneha's heart will always remain my greatest milestone."</p>
+              <span class="signature-line">— Yours Forever</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Jatin Selfie -->
+        <div class="flip-card" data-tilt="2">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <div class="polaroid-tape"></div>
+              <div class="polaroid-photo">
+                <img src="images/jatin_selfie.jpg" alt="Jatin Selfie" />
+              </div>
+              <div class="polaroid-text">
+                <h4>Late Night Thoughts 📱</h4>
+                <p>Waiting for Sneha's calls & texts</p>
+                <span class="tap-hint">Tap to flip & read secret note ↺</span>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="secret-wax-seal">💌</div>
+              <h3>Midnight Whispers</h3>
+              <p>"No matter how late it is or how tired I am, your one text makes everything bright and peaceful."</p>
+              <span class="signature-line">— Jatin ❤️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: THE HILARIOUS MEME ARENA (JATIN VS SNEHA) 😂🔥 -->
+    <section class="section-meme" id="memeSection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="tere_bhai">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">🍕</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Full Masti Beats • Viewport Section 7</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">मस्ती व धमाल</span> • Tere Bhai Ka Birthday Hai</h4>
+            <p class="song-lyrics-snippet">"Sneha: 'Shopping karni hai' • Jatin: 'Main hoon na!' 😂🛍️"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="laugh"></i> Wholesome Roasting</span>
+        <h2 class="headline-title">The Jatin vs Sneha Meme Arena</h2>
+        <p class="headline-desc">Because true love is 50% romantic poetry and 50% pulling each other's leg!</p>
+      </div>
+
+      <div class="meme-dual-grid">
+        <!-- Left: Custom Meme Poster -->
+        <div class="meme-poster-card glass-panel">
+          <img src="images/funny_meme_sticker.jpg" alt="Birthday shopping frenzy meme" class="meme-poster-img" />
+          <div class="meme-poster-details">
+            <span class="meme-hot-tag">100% Verified Truth 🔥</span>
+            <h3>"Sneha's 5th October Birthday Shopping vs Jatin's Wallet"</h3>
+            <p>Sneha: <em>"Bas 2 matching dresses leni hain..."</em> <br/>*45 shopping bags, 12 Amazon vans, and 3 Zara shipments later...* 💸</p>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Meme Battle Deck -->
+        <div class="meme-interactive-card glass-panel">
+          <div class="meme-nav-header">
+            <span class="meme-badge-pill" id="memeBadge">Meme #1 of 5</span>
+            <span class="meme-emoji-large" id="memeEmoji">🍕</span>
+          </div>
+
+          <div class="meme-content-box" id="memeContentBox">
+            <h4 class="m-scenario" id="mScenario">Sneha: "Kuch bhi mangwa lo, main sab kha lungi."</h4>
+            <p class="m-punchline" id="mPunchline">Jatin suggests Pizza ❌, Momos ❌, Biryani ❌, Burgers ❌... <br/>Sneha: <em>"Tumhe toh pata hi nahi mera kya khane ka mann hai!"</em> 😭🍕</p>
+            <div class="m-tip" id="mTip">Fiancé Survival Tip: Order dessert first, ask questions later.</div>
+          </div>
+
+          <div class="meme-btn-row">
+            <button class="cosmic-btn cosmic-btn-glass" id="prevMemeBtn"><i data-lucide="arrow-left"></i> Previous Roast</button>
+            <button class="cosmic-btn cosmic-btn-primary" id="nextMemeBtn">Next Hilarious Meme <i data-lucide="arrow-right"></i></button>
+          </div>
+
+          <!-- Sound Effects FX Bar -->
+          <div class="meme-sound-effects">
+            <span class="sfx-title">Meme Sound FX:</span>
+            <button class="sfx-btn" data-sfx="laugh">😂 Sitcom Laugh</button>
+            <button class="sfx-btn" data-sfx="cricket">🦗 Awkward Cricket</button>
+            <button class="sfx-btn" data-sfx="cheer">🎉 Grand Cheers</button>
+            <button class="sfx-btn" data-sfx="boing">💥 Cartoon Boing</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: THE OFFICIAL FIANCÉE CONTRACT (SIGNABLE & STAMPABLE) 📜💍 -->
+    <section class="section-contract" id="contractSection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="hindi_song">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">📜</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Seven Lifetimes Vow • Viewport Section 8</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">जन्मदिन का वादा</span> • Birthday Hindi Special</h4>
+            <p class="song-lyrics-snippet">"सात जन्मों का साथ, जतिन का स्नेहा से वादा... Sealed with Golden Wax!"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="scroll"></i> Non-Negotiable Love Law</span>
+        <h2 class="headline-title">The Official Fiancée & Future Wife Agreement</h2>
+        <p class="headline-desc">Binding for all seven lifetimes under the supreme romantic court of Jatin & Sneha.</p>
+      </div>
+
+      <div class="contract-card glass-panel">
+        <div class="contract-wax-seal" id="contractStamp">SEALED & PROMISED 💍</div>
+
+        <div class="contract-top-crest">
+          <span class="crest-ring">💍</span>
+          <h3>OFFICIAL ENGAGEMENT & LIFELONG PAMPERING DEED</h3>
+          <p>Between <strong>Jatin (The Devoted Fiancé)</strong> and <strong>Sneha (The Supreme Queen)</strong></p>
+        </div>
+
+        <div class="contract-terms-list">
+          <label class="term-row">
+            <input type="checkbox" checked class="custom-check" />
+            <span class="term-text"><strong>Clause 1: The Supreme Rule</strong> — Sneha is ALWAYS right. If under any rare circumstance Sneha is mistaken, Clause 1 immediately overrides reality.</span>
+          </label>
+          <label class="term-row">
+            <input type="checkbox" checked class="custom-check" />
+            <span class="term-text"><strong>Clause 2: Unlimited Aesthetic Photos</strong> — Jatin is bound to take at least 500 candid photos, angles, and poses until Sneha finds the perfect Instagram picture.</span>
+          </label>
+          <label class="term-row">
+            <input type="checkbox" checked class="custom-check" />
+            <span class="term-text"><strong>Clause 3: Midnight Craving Relief</strong> — Any sudden urge for ice cream, waffles, or midnight snacks shall be fulfilled by Jatin without question.</span>
+          </label>
+          <label class="term-row">
+            <input type="checkbox" checked class="custom-check" />
+            <span class="term-text"><strong>Clause 4: Daily Compliment Quota</strong> — Jatin must remind Sneha at least 10 times a day that she is the most gorgeous girl on the planet.</span>
+          </label>
+          <label class="term-row">
+            <input type="checkbox" checked class="custom-check" />
+            <span class="term-text"><strong>Clause 5: Birthday Queen Immunity</strong> — On 5th October (and every other day), Sneha is entitled to 100% royal queen treatment!</span>
+          </label>
+        </div>
+
+        <!-- Signature Pad Grid -->
+        <div class="contract-signatures-grid">
+          <div class="sig-box">
+            <span class="sig-label">Jatin's Signature (Fiancé):</span>
+            <div class="printed-signature">Jatin ❤️ (Signed with Soul)</div>
+          </div>
+          <div class="sig-box">
+            <span class="sig-label">Sneha's Signature Pad (Draw with Finger/Mouse):</span>
+            <div class="sig-canvas-container">
+              <canvas id="sigCanvas" width="320" height="90"></canvas>
+              <button class="clear-canvas-btn" id="clearSigBtn" title="Clear Pad"><i data-lucide="rotate-ccw"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="contract-actions">
+          <button class="cosmic-btn cosmic-btn-gold" id="sealContractBtn">
+            <i data-lucide="stamp"></i> Seal Contract with Golden Confetti 💍
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: 100 REASONS WHY JATIN LOVES SNEHA 💖 -->
+    <section class="section-reasons" id="reasonsSection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="song_hindi">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">💖</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Infinite Love Melody • Viewport Section 9</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">दिल से जन्मदिन की शुभकामनाएं</span> • Birthday Song Hindi</h4>
+            <p class="song-lyrics-snippet">"अनंत प्यार, अटूट विश्वास... 100 Reasons Why Jatin Loves Sneha! ❤️"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="heart-handshake"></i> Infinite Love</span>
+        <h2 class="headline-title">Why Jatin Loves Sneha (Infinite Reasons)</h2>
+        <p class="headline-desc">Tap the pulsating cosmic heart to unlock reason after reason.</p>
+      </div>
+
+      <div class="reasons-holo-card glass-panel">
+        <button class="pulsing-heart-orb" id="nextReasonOrb" title="Tap for another reason!">
+          <div class="heart-pulse-ring"></div>
+          <span class="heart-emoji">💖</span>
+          <span class="heart-tap-lbl">TAP ME</span>
+        </button>
+
+        <div class="reason-text-block">
+          <span class="reason-index-badge" id="reasonBadge">Reason #1</span>
+          <h3 class="reason-main-quote" id="reasonMainQuote">
+            "Because your smile in that green dress lights up my entire existence like a thousand Diwali lamps."
+          </h3>
+          <p class="reason-footnote">Tap the heart to discover more reasons why you are my one and only...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: THE GRAND LOVE LETTER -->
+    <section class="section-letter" id="letterSection">
+
+      <!-- Section Hindi Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="hindi_wishes">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">💌</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Eternal Love Vow & Letter • Viewport Section 10</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">तेरा हैप्पी बर्थडे</span> • Tera Happy Birthday Wishes</h4>
+            <p class="song-lyrics-snippet">"सदा सलामत रहे मेरी रानी की मुस्कान... Forever & Always Yours, Jatin ❤️"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grand-letter-parchment glass-panel">
+        <div class="letter-royal-crown"><i data-lucide="crown"></i></div>
+        <h2 class="letter-royal-title">My Forever Promise To Sneha</h2>
+        
+        <div class="letter-content-body">
+          <p>My Dearest Sneha,</p>
+          <p>
+            As the stars align to celebrate your birthday on <strong>5th October 2026</strong>, I want you to know how deeply grateful I am to have you as my fiancée and future wife.
+          </p>
+          <p>
+            Exchanging rings with you was the happiest moment of my life, but every single day I get to talk to you, hear you laugh, and dream about our future together feels even more magical. 
+            I promise to always be your biggest cheerleader, your personal photographer, your midnight snack partner, and the man who loves you more with every passing heartbeat.
+          </p>
+          <p>
+            May this birthday shower you with unbounded joy, radiant health, thrilling adventures, and all the happiness in this universe. 
+            I cannot wait to step into all our upcoming chapters together!
+          </p>
+          <p class="letter-closing">
+            Happy Birthday, My Queen. <br/>
+            <strong>Forever & Always Yours,</strong><br/>
+            <span class="jatin-cursive-sig">Jatin ❤️</span>
+          </p>
+        </div>
+
+        <div class="whatsapp-btn-wrapper">
+          <a href="https://api.whatsapp.com/send?text=Hey%20Jatin!%20I%20just%20saw%20the%20magical%20birthday%20surprise%20website%20you%20made%20for%20me.%20I%20am%20so%20touched%20and%20I%20love%20it%20so%20much!%20%E2%9D%A4%EF%B8%8F%F0%9F%A5%B0%F0%9F%92%8D" target="_blank" class="cosmic-btn cosmic-btn-whatsapp">
+            <i data-lucide="message-circle"></i> Send Jatin a Sweet Birthday Hug on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: 3D VIRTUAL BIRTHDAY CAKE CUTTING & CANDLE BLOWING CLIMAX (LAST SECTION!) 🎂🎉 -->
+    <section class="section-cake" id="cakeSection">
+
+      <!-- Section Hindi Birthday Song Bar -->
+      <div class="section-hindi-song-bar" data-song-id="bday_wish">
+        <div class="song-bar-left">
+          <div class="song-icon-badge">🎂</div>
+          <div class="song-info-group">
+            <span class="song-pill-tag"><span class="live-dot"></span> Birthday Cake Grand Finale • Viewport Section 11</span>
+            <h4 class="song-title-hindi"><span class="hindi-text">विश यू हैप्पी बर्थडे स्नेहा</span> • A Wish You Happy Happy Birthday</h4>
+            <p class="song-lyrics-snippet">"मोमबत्तियां बुझाओ, विश मांगो, और केक काटो मेरी रानी! 5th October 2026 🎉"</p>
+          </div>
+        </div>
+        <div class="song-bar-right">
+          <div class="mini-eq-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="btn-play-hindi-song" data-action="play-section-song" title="Play Song">
+            <i data-lucide="play"></i> <span>Play Song</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-headline">
+        <span class="headline-pill"><i data-lucide="party-popper"></i> The Ultimate Grand Climax</span>
+        <h2 class="headline-title">Sneha's 3D Interactive Royal Cake Cutting</h2>
+        <p class="headline-desc">Blow out the glowing candles, pick up the golden knife, slice the cake, and feed a virtual strawberry bite!</p>
+      </div>
+
+      <div class="cake-ceremony-card glass-panel">
+        
+        <!-- Interactive 3D Cake Arena -->
+        <div class="cake-interactive-stage" id="cakeInteractiveStage">
+          
+          <!-- Golden Royal Chef Knife (Animated & Interactive) -->
+          <div class="royal-cake-knife" id="royalCakeKnife" title="Tap or Click to Cut Cake!">
+            <div class="knife-blade">
+              <div class="knife-sheen"></div>
+            </div>
+            <div class="knife-guard"></div>
+            <div class="knife-handle">
+              <span class="knife-gem">💎</span>
+            </div>
+            <div class="knife-hint-pill">✨ Tap Knife to Slice</div>
+          </div>
+
+          <!-- 3D Layered Cake Assembly -->
+          <div class="cake-stage-3d" id="cakeStage3D">
+            <!-- Pedestal Glass Plate -->
+            <div class="cake-pedestal-plate"></div>
+            
+            <!-- Sparklers Firing Layer -->
+            <div class="cake-sparklers-container" id="cakeSparklers">
+              <div class="sparkler-fountain sf-left"></div>
+              <div class="sparkler-fountain sf-right"></div>
+            </div>
+
+            <!-- Base Tier -->
+            <div class="cake-tier tier-base">
+              <div class="cake-frosting-drip"></div>
+              <div class="cake-berry-row">🍓 🍓 🍓 🍓 🍓 🍓</div>
+              <div class="tier-gold-pearls"></div>
+            </div>
+
+            <!-- Middle Tier -->
+            <div class="cake-tier tier-mid">
+              <div class="cake-frosting-drip"></div>
+              <span class="cake-label-text">Happy Birthday Sneha</span>
+              <div class="tier-gold-pearls"></div>
+            </div>
+
+            <!-- Top Tier with Cutout Wedge Slice -->
+            <div class="cake-tier tier-top" id="tierTop">
+              <div class="cake-frosting-drip"></div>
+              <div class="tier-strawberry-toppers">🍓 👑 🍓</div>
+              
+              <!-- 3D Detachable Sliced Piece -->
+              <div class="cake-slice-piece" id="cakeSlicePiece">
+                <div class="slice-inner-cream">
+                  <span>🍓</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Glowing Candles with Smoke Emitters -->
+            <div class="candles-deck" id="candlesDeck">
+              <div class="cake-candle" data-lit="true">
+                <div class="candle-flame"></div>
+                <div class="candle-smoke"></div>
+              </div>
+              <div class="cake-candle candle-center-tall" data-lit="true">
+                <div class="candle-flame"></div>
+                <div class="candle-smoke"></div>
+              </div>
+              <div class="cake-candle" data-lit="true">
+                <div class="candle-flame"></div>
+                <div class="candle-smoke"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sliced Piece Landing Golden Dessert Plate -->
+          <div class="dessert-plate-served" id="dessertPlate">
+            <div class="plate-gold-rim">
+              <div class="served-slice-cake">
+                <span class="slice-berry">🍓</span>
+                <span class="slice-cream">🍰</span>
+              </div>
+            </div>
+            <span class="plate-label">Queen Sneha's First Bite 👑</span>
+          </div>
+
+        </div>
+
+        <!-- Interactive Control Deck -->
+        <div class="cake-controls-panel">
+          <div class="cake-instruction-pill" id="cakeStatusPill">
+            ✨ Step 1: Candles are glowing! Tap "Blow Out Candles" to make your wish.
+          </div>
+
+          <div class="cake-action-buttons">
+            <button class="cosmic-btn cosmic-btn-primary" id="blowCandlesBtn">
+              <i data-lucide="wind"></i> Blow Out Candles 💨
+            </button>
+            <button class="cosmic-btn cosmic-btn-gold disabled" id="sliceCakeBtn" disabled>
+              <i data-lucide="scissors"></i> Slice Birthday Cake with Knife 🍰
+            </button>
+            <button class="cosmic-btn cosmic-btn-pink disabled" id="feedBiteBtn" disabled>
+              <i data-lucide="heart"></i> Feed Virtual Bite to Sneha 🍓
+            </button>
+          </div>
+
+          <!-- Secret Birthday Wish Input Box -->
+          <div class="wish-lock-box">
+            <label for="wishInput"><i data-lucide="sparkle"></i> Enter your secret birthday wish for Jatin & our future:</label>
+            <div class="wish-input-row">
+              <input type="text" id="wishInput" placeholder="e.g. A lifetime of endless joy, world travels, and love with Jatin..." />
+              <button class="cosmic-btn cosmic-btn-glass" id="saveWishBtn"><i data-lucide="send"></i> Send to Stars ✨</button>
+            </div>
+            <p class="wish-feedback-text hidden" id="wishFeedback">✨ Your wish has been launched into the cosmos & locked in Jatin's heart forever! ❤️</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="galaxy-footer">
+      <div class="footer-rings-spin">💍 ✨ 💍</div>
+      <h3 class="footer-title">Sneha & Jatin</h3>
+      <p class="footer-sub">Celebrating Sneha's Birthday • 5th October 2026</p>
+      <p class="footer-engineered">Engineered with infinite cosmic love, animations, and code by Jatin for his future wife ❤️</p>
+    </footer>
+
+  </main>
+
+  <!-- POPUP CELEBRATION TOAST -->
+  <div class="cosmic-toast" id="cosmicToast">
+    <span class="toast-icon">💖</span>
+    <span class="toast-message" id="toastMessage">Shayari copied to clipboard!</span>
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>
